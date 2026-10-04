@@ -1,0 +1,146 @@
+/* =========================================================
+   Galería de fotos accesible — hoja de estilo
+   Los colores están elegidos para superar el contraste
+   mínimo de 4.5:1 que exigen WAVE y aXe.
+   ========================================================= */
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background-color: #EDEFF2;
+    color: #1F2630;
+    line-height: 1.5;
+}
+
+/* ---------- Encabezado ---------- */
+header {
+    background-color: #17344F;
+    color: #FFFFFF;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 0 0 8px;
+    font-size: 2em;
+}
+
+.subtitulo {
+    margin: 0 auto;
+    max-width: 48ch;
+    font-size: 0.95em;
+    color: #DCE6F0;
+}
+
+/* ---------- Cuerpo ---------- */
+main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 20px 45px;
+}
+
+main h2 {
+    font-size: 1.15em;
+    margin: 0 0 16px;
+    color: #17344F;
+}
+
+/* ---------- Miniaturas ---------- */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.preview {
+    width: 150px;
+    height: 112px;
+    object-fit: cover;
+    border: 3px solid #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.preview:hover {
+    transform: scale(1.06);
+    border-color: #2E5C8A;
+}
+
+/* IMPORTANTE para aXe y WAVE: el foco del teclado debe verse.
+   Nunca usar outline: none sin poner algo visible en su lugar. */
+.preview:focus {
+    outline: 4px solid #B23A08;
+    outline-offset: 3px;
+    transform: scale(1.06);
+}
+
+/* ---------- El recuadro que cambia con JavaScript ---------- */
+#image {
+    width: 100%;
+    max-width: 640px;
+    height: 440px;
+    margin: 0 auto;
+
+    /* Color de reposo: el texto blanco se lee sobre él cuando no hay foto */
+    background-color: #3F4A57;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 2px solid #C7D0DA;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #FFFFFF;
+    /* La sombra mantiene el texto legible sobre fotos claras */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* ---------- Pie ---------- */
+footer {
+    background-color: #17344F;
+    color: #E3EBF3;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.85em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ---------- Respeta a quien prefiere menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .preview {
+        transition: none;
+    }
+    .preview:hover,
+    .preview:focus {
+        transform: none;
+    }
+}
+
+/* ---------- Pantallas pequeñas ---------- */
+@media (max-width: 500px) {
+    #image {
+        height: 300px;
+    }
+    .preview {
+        width: 125px;
+        height: 94px;
+    }
+}

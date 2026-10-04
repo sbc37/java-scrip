@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de fotos accesible</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- PUNTO 8: el evento onload llama a la función que agrega los tabindex -->
+<body onload="prepararGaleria()">
+
+    <header>
+        <h1>Galería de fotos accesible</h1>
+        <p class="subtitulo">
+            Pase el ratón por encima de una miniatura, o navegue con la tecla Tab,
+            para ver la imagen ampliada.
+        </p>
+    </header>
+
+    <main>
+
+        <h2>Miniaturas</h2>
+
+        <!-- PUNTO 2: seis imágenes, cada una con su texto alternativo.
+             PUNTO 6: a los eventos de ratón (onmouseover / onmouseleave) se les
+             suman los de teclado (onfocus / onblur), con el mismo patrón.
+             El atributo tabindex NO se escribe aquí: lo agrega JavaScript. -->
+        <section class="galeria">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1018/800/600"
+                 alt="Montañas nevadas reflejadas en un lago al amanecer"
+                 onmouseover="upDate(this)"
+                 onmouseleave="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1015/800/600"
+                 alt="Río de aguas tranquilas entre acantilados rocosos"
+                 onmouseover="upDate(this)"
+                 onmouseleave="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1039/800/600"
+                 alt="Cascada cayendo desde un acantilado hacia un valle verde"
+                 onmouseover="upDate(this)"
+                 onmouseleave="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1043/800/600"
+                 alt="Bosque de pinos altos cubierto por la niebla de la mañana"
+                 onmouseover="upDate(this)"
+                 onmouseleave="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1016/800/600"
+                 alt="Cañón de roca roja bajo un cielo despejado"
+                 onmouseover="upDate(this)"
+                 onmouseleave="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1036/800/600"
+                 alt="Playa de arena oscura con olas rompiendo al atardecer"
+                 onmouseover="upDate(this)"
+                 onmouseleave="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+        </section>
+
+        <!-- El div que modifican las funciones.
+             aria-live avisa a los lectores de pantalla cuando el texto cambia. -->
+        <div id="image"
+             style="background-image: url('')"
+             role="status"
+             aria-live="polite">
+            Pase el ratón por encima de una imagen para mostrarla aquí
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Proyecto final &middot; Curso de Introducción a JavaScript &middot; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
