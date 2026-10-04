@@ -1,0 +1,111 @@
+/* =========================================================
+   Galería de fotos interactiva — hoja de estilo
+   ========================================================= */
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background-color: #EDEFF2;
+    color: #1F2630;
+}
+
+header {
+    background-color: #1B3A57;
+    color: #FFFFFF;
+    padding: 28px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 0 0 6px;
+    font-size: 2em;
+}
+
+.subtitulo {
+    margin: 0;
+    opacity: 0.85;
+    font-size: 0.95em;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 20px 40px;
+}
+
+/* ---- Fila de miniaturas ---- */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.preview {
+    width: 150px;
+    height: 112px;
+    object-fit: cover;
+    border: 3px solid #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.preview:hover,
+.preview:focus {
+    transform: scale(1.06);
+    border-color: #2E5C8A;
+    outline: none;
+}
+
+/* ---- El div que cambia con JavaScript ---- */
+#image {
+    width: 100%;
+    max-width: 620px;
+    height: 420px;
+    margin: 0 auto;
+
+    /* Color de reposo: cuando no hay foto, el texto blanco se lee sobre él */
+    background-color: #46525F;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 2px solid #D5DBE2;
+    border-radius: 8px;
+
+    /* Centrar el texto dentro del recuadro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #FFFFFF;
+    /* Sombra para que el texto se lea sobre cualquier foto */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+footer {
+    background-color: #1B3A57;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.85em;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    #image { height: 300px; }
+    .preview { width: 120px; height: 90px; }
+}

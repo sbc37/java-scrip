@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de fotos interactiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Galería de fotos</h1>
+        <p class="subtitulo">Pase el ratón por encima de cualquier miniatura para verla en grande.</p>
+    </header>
+
+    <main>
+
+        <!-- Miniaturas.
+             onmouseover envía "this" (la propia imagen) a la función upDate.
+             onmouseout llama a unDo para restaurar el estado inicial.
+             onfocus/onblur y tabindex son un extra de accesibilidad: hacen que
+             la galería también funcione navegando con el teclado (tecla Tab). -->
+        <section class="galeria">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1018/600/450"
+                 alt="Montañas nevadas sobre un lago al amanecer"
+                 tabindex="0"
+                 onmouseover="upDate(this)"
+                 onmouseout="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1015/600/450"
+                 alt="Río entre montañas rocosas"
+                 tabindex="0"
+                 onmouseover="upDate(this)"
+                 onmouseout="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1039/600/450"
+                 alt="Cascada cayendo sobre un acantilado"
+                 tabindex="0"
+                 onmouseover="upDate(this)"
+                 onmouseout="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+            <img class="preview"
+                 src="https://picsum.photos/id/1043/600/450"
+                 alt="Bosque de pinos cubierto de niebla"
+                 tabindex="0"
+                 onmouseover="upDate(this)"
+                 onmouseout="unDo()"
+                 onfocus="upDate(this)"
+                 onblur="unDo()">
+
+        </section>
+
+        <!-- Este es el div que las funciones modifican.
+             Empieza con la imagen de fondo vacía: url('') -->
+        <div id="image" style="background-image: url('')">
+            Pase el ratón por encima de una imagen para mostrarla aquí
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Proyecto del curso Introducción a JavaScript &middot; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
